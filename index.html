@@ -1,0 +1,82 @@
+
+ <html>
+ <head>
+ <style>
+  .input{
+ margin: 20px;
+ font-size: 20px;
+ text-align: center;
+ background: linear-gradient(to top, white, grey);
+ width: 100px;
+ height: 40px;
+ border: 2px solid black;
+ border-radius: 10px;
+ }
+ #container{
+ margin: 0px 50%;
+ width: 40%; height: 20px;
+ background: white;
+ position: fixed;
+ box-shadow: 2px 2px 5px black;
+ padding: 10px 10px;
+ border: none;
+ border-radius: 10px;
+ }
+ #freq{
+  width: 80%; height: 2px;
+
+ }
+
+ </style>
+ <script>
+ setInterval(function(){
+var freq = document.getElementById("freq").value;
+document.getElementById("selected").innerHTML = freq/10;
+
+}, 10);
+
+var freq = document.getElementById("freq").value;
+var t = freq * 100;
+
+function b(){
+// write your code here
+
+var p = document.getElementById("p");
+var freq = document.getElementById("freq").value;
+var r = document.getElementById("r");
+
+
+const fruits = ["Stone", "Paper", "Scissor"];
+let string = fruits.length;
+let text = "";
+for (i = 0; i < string; i++) {
+  text += fruits[i] + "<br>";
+ };
+r.value = Math.floor(Math.random() * string);
+ 
+ var t = freq * 100;
+ 
+  var x1 = document.createElement("li");
+  var y = document.createTextNode(fruits[r.value]);
+  x1.appendChild(y);
+  document.getElementById("demo").appendChild(x1);
+  
+  window.scrollTo(0,document.body.scrollHeight);
+  
+setTimeout(b, t);
+}
+setTimeout(b, t);
+
+
+ </script>
+</head>
+	 <body>
+	 <div id="container">
+	 <input type="range" id="freq" min="0" max="20"></input><span  id="selected"></span>
+	 </div>
+   <textarea id="r" readonly class="input"></textarea>
+	<ol id="demo"></ol>
+	
+	 </body>
+
+ </html>
